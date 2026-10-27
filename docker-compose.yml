@@ -1,0 +1,13 @@
+# Local run:  cp .env.example .env  (fill the values)  &&  docker compose up --build
+services:
+  sahm:
+    build: .
+    env_file: .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - sahm-data:/data
+    restart: unless-stopped
+
+volumes:
+  sahm-data:
